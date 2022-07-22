@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>10조 오늘의 TODO</title>
+    <!-- html과 css에 대해 강의를 들었다. html은 Hypertext Markup Language로, 브라우저가 웹페이지를 잘 그릴 수 있도록 한다.
+    어떤 연산을 수행하거나,시스템을 동작하게 하는 프로그래밍 언어와는 다른 마크업 언어!! -->
+    <!-- css(Cascading Style Sheets)는 웹페이지를 꾸며주는 언어로,프로그래밍언언어도,마크업언어도x,스타일시트언어
+    tag <style></style>안에 있는 것들~  -->
+    <!-- 3명의 TODO list를 각자 직접 작성하고, 완료된 항목은 체크해서 우리 팀원이 어디까지 공부를 진행했나 
+    물어보지 않아도 실시간으로 페이지에서 확인할 수 있으면 편하지 않을까?? -->
+    <!-- 사용자에게 직접 입력받은 값을 카드에 넣어주고, 완료시 버튼을 누르면 해당 TODO가 줄이 그어지며 완료표시를 나타냅니다 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <style>
+      #title {
+        color: rgb(118, 120, 223);
+        text-decoration: underline;
+        text-align: center;
+        font-size: x-large;
+      }
+
+      .wrap {
+        display: flex;
+      }
+
+      .todo-card {
+        border: 2px solid gray;
+        padding: 2em;
+        margin: 1em;
+        border-radius: 5px;
+        min-width: 150px;
+      }
+
+      button {
+        width: calc(80%);
+        position: center;
+      }
+
+      button:hover {
+        background-color: rgb(200, 201, 245);
+      }
+    </style>
+
+    <h1 id="title" onClick="window.location.reload()">10조 공부현황</h1>
+    <div class="wrap">
+      <div class="todo-card">
+        <h3 class="name">김현지</h3>
+        <p>리액트 강의 1주차 듣기</p>
+        <p>리액트 팀과제 2개 조사해오기</p>
+        <p>IT지식 CS 003 발표준비하기</p>
+        <button onClick="changeBackgroundColor(0)">완료</button>
+      </div>
+
+      <div class="todo-card">
+        <h3 calss="name">박준수</h3>
+        <p>리액트 강의 1주차 듣기</p>
+        <p>리액트 팀과제 2개 조사해오기</p>
+        <button onClick="changeBackgroundColor(1)">완료</button>
+      </div>
+
+      <div class="todo-card">
+        <h3 calss="name">유지완</h3>
+        <p>리액트 강의 1주차 듣기</p>
+        <p>리액트 팀과제 2개 조사해오기</p>
+        <button onClick="changeBackgroundColor(2)">완료</button>
+      </div>
+    </div>
+
+    <script>
+      function sayHello(event) {
+        console.log("hello");
+      }
+      function titleclick(event) {
+        //titleclick시 새로고침함수
+        window.location.reload();
+      }
+
+      function changeBackgroundColor(index) {
+        let card = document.getElementsByClassName("todo-card")[index];
+        card.style.backgroundColor = "rgb(200, 201, 245)";
+      }
+
+      function goodBye(event) {
+        console.log("Goodbye");
+      }
+
+      const wraps = document.getElementsByClassName("wrap");
+      console.log(wraps);
+
+      const title = document.getElementById("title"); //띄어쓰기대신 대문자 카멜케이스(낙타)
+      console.log(title);
+      title.style.backgroundColor = "rgb(200, 201, 245)";
+      title.addEventListener("click", titleclick); //타이틀 누르면 titleclick함수실행
+
+      const buttons = document.getElementsByTagName("button");
+      console.log(buttons);
+
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", sayHello);
+      }
+
+      const new_div = document.createElement("div"); //새 요소를 만들어줍니다. 하지만 만들기만 했을 뿐
+      //아직 body든 어디든 보여지는 html에 붙지 않았기 때문에
+      new_div.style.backgroundColor = "rgb(200, 201, 245)";
+      new_div.style.height = "60px";
+      new_div.style.width = " 500rem";
+      console.log(new_div);
+      document.body.appendChild(new_div); // document.붙여줄곳.appendChild(자식으로)(만든거이름/const로 선언한거);
+      new_div.addEventListener("click", goodBye);
+    </script>
+  </body>
+</html>
