@@ -189,3 +189,17 @@ let cats = animals.filter((i) => {
 });
 console.log(cats);
 //아직도어렵네;;
+
+//Quiz3. concat으로 두 배열 합치기
+
+//예제
+const dogs = ["검은 강아지", "노란 강아지", "흰 강아지"];
+const cats = ["검은 고양이", "복슬 고양이", "노란 고양이"];
+
+const dogs = ["검은 강아지", "노란 강아지", "흰 강아지"];
+const cats = ["검은 고양이", "복슬 고양이", "노란 고양이"];
+
+const animals = dogs.concat(cats);
+
+console.log(animals);
+//이건 쉬워서 다행이다
