@@ -1,0 +1,28 @@
+.add-form {
+    background-color: #f9f6e3;
+    border-radius: 12px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 30px;
+  }
+  
+  .add-form, .input-group {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .add-button {
+    background-color: #8455c5;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+    height: 40px;
+    width: 140px;
+  }
+  
+  .form-label {
+    font-size: 16px;
+    font-weight: 700;
+  }
