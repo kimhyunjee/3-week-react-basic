@@ -2,7 +2,7 @@ import React from "react"; //useState를 쓰기 위해
 import Todo from "../todo/Todo";
 import "./style.css";       //style.css임포트
 
-function List({todos,setTodos,deleteButton,completeButton}){
+function List({todos,setTodos,deleteButton,completeButton ,modify}){
     // console.log(todos);
 
     return (
@@ -18,6 +18,8 @@ function List({todos,setTodos,deleteButton,completeButton}){
                       setTodos={setTodos}
                       deleteButton={deleteButton}
                       completeButton={completeButton}
+                      key={todo.id}
+                      modify={modify}
                       />
                       ) :null;
                 })}

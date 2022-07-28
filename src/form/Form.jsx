@@ -1,36 +1,17 @@
-import React, { useState } from "react"; //useState를 쓰기 위해
+import React, { useState , useRef } from "react"; //useState,useRef를 쓰기 위해
 import "./style.css";       //style.css임포트
 import List from "../list/List";
 
 
-function Form(){
-    //title과 comment가 set에 영향 받아 바뀌어서 저장됨
-    const [title, setTitle] = useState("");
-    const [comment, setComment] = useState("");
-    const [todos, setTodos] = useState([
-        {
-        id:1,
-        titleText: "리액트 공부하기",
-        commentText: "리액트 어렵다",
-        isDone: false,
-        } ,
-        {
-        id:2,
-        titleText: "리액트에서 중요한것",
-        commentText: "값을 가져오는 것과 함수명/변수명 잘짓기",
-        isDone: false,
-        }
-    ]);
-    const [titleText, setTitleText] =useState("");
-    const [commentText, setCommentText] =useState("");
-    // const wrap = React.useRef(null);
-    // console.log(wrap);
-    // window.setTimeout(()=> {console.log(wrap);}, 1000);
-    //useState대신 ref사용시
-    // const [todos.titleText,setText] =useState("");
+function Form( {todos, setTodos} ) {
 
 
+const [title, setTitle] = useState("");
+const [comment, setComment] = useState("");
 
+const [titleText, setTitleText] =useState(""); 
+const [commentText, setCommentText] =useState("");
+ 
 
     const addTitle = (event) => {
         // console.log(event.target.value);
@@ -51,7 +32,7 @@ function Form(){
     // console.log(comment);
 
 
-
+    //추가하기 버튼 클릭시 input값 카드로 가서 아래화면에 붙음
     function AddButton() {
         // console.log(this.text.current.value); //안뜸
         // console.log(todos);
@@ -64,7 +45,7 @@ function Form(){
         // setTitle("");
         // setComment("");
         setTitleText(""); 
-        setCommentText("");  
+        setCommentText(""); 
     }
     // console.log(todos); //맨마지막map함수 쓸때 todos의 뭘 가져와야할지 모를때 보자/최종todos
 
@@ -83,6 +64,53 @@ function Form(){
     };
   //   console.log(todos);
 
+  //input 수정 modify1
+  // function modify(id) {
+  //   const edit = todos.map((todo) => {
+  //     if (todos.id === id) {
+  //       return (
+  //         //input태그에 직접 접근하여 커서 포커스 설정
+  //         inputTitle.current.focus(); 
+  //         //input태그에 직접 접근하여 input의 value값 가져오기
+  //         titleText.text = inputTitle.current.value;
+  //       );
+  //     } else {
+  //       null;
+  //     };
+  //   });
+  //   setTitleText(todos);
+  // };
+
+  //input수정 modify2 
+  // const modify = (id) => {
+  //   setTodos(todos.map((todos) => {
+  //     if (todos.id ===id) {
+  //       inputTitle.current.focus();
+  //       setTodos.text=inputTitle.current.value;
+  //       return {...todos, titleText:inputTitle }
+  //     } else {
+  //       return todos
+  //     }
+  //   }
+  //   ));
+  // };
+  // console.log(setTodos);
+
+    //input수정 modify3
+  // {
+  //   todos.map((todo) => {
+  //     if (todo.id === id) {
+  //       inputTitle.current.focus();
+  //       inputComment.current.focus();
+  //       todo.textTitle = inputTitle.current.value;
+  //     }
+  //   });
+  //   setTodos(todos);
+  //   setTitleText(""); 
+  //   setCommentText("");
+  // };
+
+    
     return (
         <>
         <div className="add-form">
@@ -91,26 +119,30 @@ function Form(){
             <label className="form-label">제목</label>
             <input 
               type="text"
-              name="titleText" 
+              name="titleList" 
               className="add-input input-body" 
               onChange={addTitle} 
-              value={titleText} 
+              value={titleText}
+              // ref={inputTitle}
             />
 
             <label className="form-label">내용</label>
             <input 
               type="text" 
-              name="commentText" 
+              name="commentList" 
               className="add-input"
               onChange={addComment} 
               value={commentText}
+              // ref={inputComment}
             />
 
           </div>
           <button className= "add-button" onClick={AddButton} > 추가하기 </button>
         </div>
 
-        <List todos={todos} setTodos={setTodos} completeButton={completeButton} deleteButton={deleteButton}/> 
+        <List todos={todos} setTodos={setTodos} completeButton={completeButton} deleteButton={deleteButton}
+        // modify = {modify}
+        /> 
     
         </>
 

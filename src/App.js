@@ -1,16 +1,10 @@
 import React from "react";
-import "./App.css";  //cs파일 임포트
-import Layout from "./layout/Layout";
+import TodoList from "./pages/TodoList";
 
 
 
-function App () {
-
-  return (
-    <div >
-      <Layout />
-    </div>
-  );
+function App() {
+  return <TodoList />;
 }
 
 export default App;

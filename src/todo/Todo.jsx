@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
 
-function Todo({ todo, deleteButton, completeButton, todos,setTodos }) {
+function Todo({ todo, deleteButton, completeButton, modify }) {
 
   return (
 
-    <div className="todo-container">
+    <div className="todo-container" onClick={() => modify(todo.id)}>
     <div>
       <h2 className="todo-title">{todo.titleText}</h2>
       <div>{todo.commentText}</div>
@@ -19,6 +19,7 @@ function Todo({ todo, deleteButton, completeButton, todos,setTodos }) {
         className="todo-complete-button button"
         onClick={() => completeButton(todo.id)}>
         {todo.isDone? "취소하기": "완료하기"}</button>
+
     </div>
   </div>
 
