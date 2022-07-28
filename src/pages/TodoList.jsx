@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "../layout/Layout";
 import Form from "../form/Form"
 import Header from "../header/Header";
-import List from "../list/List";
+// import List from "../list/List";
 
 
 const TodoList = () => {
@@ -37,7 +37,7 @@ const [todos, setTodos] = useState([
     <Layout>
       <Header />
       <Form setTodos={setTodos} todos={todos} />
-      <List setTodos={setTodos} todos={todos} />
+      {/* <List setTodos={setTodos} todos={todos} /> */}
     </Layout>
   );
 };

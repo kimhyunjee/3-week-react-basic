@@ -1,4 +1,4 @@
-import React, { useState , useRef } from "react"; //useState,useRef를 쓰기 위해
+import React, { useState  } from "react"; //useState,useRef를 쓰기 위해
 import "./style.css";       //style.css임포트
 import List from "../list/List";
 
