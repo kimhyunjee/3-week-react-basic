@@ -55,27 +55,26 @@ function Form(){
         titleText:title, 
         commentText: comment,
         isDone:false }]); //바뀐인풋(value값)
+        todos.titleText.value="";
+        todos.commentText.value="";
+         
     }
-
     // console.log(todos); //맨마지막map함수 쓸때 todos의 뭘 가져와야할지 모를때 보자/최종todos
 
-    
-    
     function completeButton (id) {
-        const newTodo = todos.map((todo) => {
-          return todo.id === id ? {...todo, isDone:!todo.isDone } : todo
-        })
-        setTodos(newTodo);
-      };
-    
-      function deleteButton(id) {
-        const newTodo = todos.filter((todo)=>{
-          return todo.id !==id;
-        });
-        setTodos(newTodo);
-      };
-    //   console.log(todos);
-
+      const newTodo = todos.map((todo) => {
+        return todo.id === id ? {...todo, isDone:!todo.isDone } : todo
+      })
+      setTodos(newTodo);
+    };
+  
+    function deleteButton(id) {
+      const newTodo = todos.filter((todo)=>{
+        return todo.id !==id;
+      });
+      setTodos(newTodo);
+    };
+  //   console.log(todos);
 
     return (
         <>
