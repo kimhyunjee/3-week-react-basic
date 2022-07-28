@@ -21,10 +21,13 @@ function Form(){
         isDone: false,
         }
     ]);
+    const [titleText, setTitleText] =useState("");
+    const [commentText, setCommentText] =useState("");
     // const wrap = React.useRef(null);
     // console.log(wrap);
     // window.setTimeout(()=> {console.log(wrap);}, 1000);
     //useState대신 ref사용시
+    // const [todos.titleText,setText] =useState("");
 
 
 
@@ -34,6 +37,7 @@ function Form(){
         const title = event.target.value;
         // console.log(event);
         setTitle(title); 
+        setTitleText(event.target.value);
     };
     // console.log(title);
 
@@ -42,8 +46,10 @@ function Form(){
         const comment = event.target.value;
         // console.log(event);
         setComment(comment);
+        setCommentText(event.target.value);
     };
     // console.log(comment);
+
 
 
     function AddButton() {
@@ -55,9 +61,10 @@ function Form(){
         titleText:title, 
         commentText: comment,
         isDone:false }]); //바뀐인풋(value값)
-        todos.titleText.value="";
-        todos.commentText.value="";
-         
+        // setTitle("");
+        // setComment("");
+        setTitleText(""); 
+        setCommentText("");  
     }
     // console.log(todos); //맨마지막map함수 쓸때 todos의 뭘 가져와야할지 모를때 보자/최종todos
 
@@ -87,7 +94,7 @@ function Form(){
               name="titleText" 
               className="add-input input-body" 
               onChange={addTitle} 
-              value={todos.titleText} 
+              value={titleText} 
             />
 
             <label className="form-label">내용</label>
@@ -96,11 +103,11 @@ function Form(){
               name="commentText" 
               className="add-input"
               onChange={addComment} 
-              value={todos.commentText}
+              value={commentText}
             />
 
           </div>
-          <button className= "add-button" onClick={AddButton}> 추가하기 </button>
+          <button className= "add-button" onClick={AddButton} > 추가하기 </button>
         </div>
 
         <List todos={todos} setTodos={setTodos} completeButton={completeButton} deleteButton={deleteButton}/> 
